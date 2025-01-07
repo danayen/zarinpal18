@@ -43,7 +43,7 @@ class PaymentTransaction(models.Model):
         return {
             'provider_id':self.provider_id.id,
             'merchant_id': self.provider_id.zarinpal_merchant_id,
-            'amount': int(self.amount),
+            'amount': int(self.amount * 10),
             'description': self.partner_name,
             'callback_url': urls.url_join(base_url, ZarinpalController._callback_url),
             'api_url': urls.url_join(base_url, ZarinpalController._authority_url),
